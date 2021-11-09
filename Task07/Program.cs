@@ -5,7 +5,7 @@ int a = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите число положительное N: ");
 int b = Convert.ToInt32(Console.ReadLine());
 
-int i=a;
+int i=a; 
   while (i>=b)
   {
        Console.WriteLine(a);
