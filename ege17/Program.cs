@@ -4,38 +4,36 @@
  //элементов последовательности, у которых разность элементов
   //кратна 60, затем максимальную из разностей элементов таких пар. 
   //В данной задаче под парой подразумевается два различных элемента
-   //последовательности. Порядок элементов в паре не важен.
+ //последовательности. Порядок элементов в паре не важен.
 
-  // string[] input = System.IO.File.ReadLines(); Начал решение без файла ! Доделаю!
-   
+  string[] input = System.IO.File.ReadAllLines("17 (2).txt");
+  int[] a = new int[10000];
+   for(int i=0;i<input.Length;i++)
+   {
+       a[i] = Convert.ToInt32(input[i]);
+   }
 
-   void Randoms(int[] arr, int min,int max)
+
+int multiplicity(int[] arr, out int max)
 {
-    for(int i=0; i < arr.Length;i++)
-    {
-        arr[i] = new Random().Next(min,max);
-        Console.WriteLine(arr[i]);
-    }
-}
-
-
-
-
-int multiplicity(int[] arr)
-{
-    int summ=0;
-    for (int i = 0; i < arr.Length - 1; i++)
+    int count=0;
+    max=0;
+    for (int i = 0; i < arr.Length; i++)
     {
         for (int j = i+1; j < arr.Length; j++)
         {
-             if ((arr[i]-arr[j+1])%60==0)  summ=summ+1;
+             if ((arr[i]-arr[j])%60==0) {
+              count=count+1;
+              if((Math.Abs(arr[i]-arr[j]))>max) {
+              max = Math.Abs(arr[i]-arr[j]);
+              }    
+             }
         }
        
     }
-    return summ;
+    return count;
 }
+int max;
+int c = multiplicity(a,out max);
+Console.WriteLine(c+"  "+max);
 
-int[] array = new int[9999];
-Randoms(array,0,10001);
-Console.WriteLine();
-multiplicity(array);
