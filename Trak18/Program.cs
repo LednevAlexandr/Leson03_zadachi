@@ -11,3 +11,4 @@ if (x>0 & y<0) Console.WriteLine("3 четверть координат");
 if (x<0 & y>0) Console.WriteLine("1 четверть координат");
 if (x<0 & y<0) Console.WriteLine("4 четверть координат");
 
+void random(arr[])
